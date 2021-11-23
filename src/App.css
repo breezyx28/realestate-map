@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+html,
+body {
+  font-family: 'Gilroy Light';
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.font-bold {
+  font-family: 'Gilroy ExtraBold';
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* text colors */
+.text-primary-blue {
+  color: #696fff;
+}
+.text-primary-black {
+  color: #252525;
+}
+.text-primary-green {
+  color: #7ab377;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* background colors */
+.bg-primary-blue {
+  background-color: #696fff;
+}
+.bg-primary-black {
+  background-color: #252525;
+}
+.bg-primary-green {
+  background-color: #7ab377;
 }
 
-.App-link {
-  color: #61dafb;
+/* borders colors */
+.border-primary-blue {
+  border: 1px solid #696fff;
+}
+.border-primary-black {
+  border-color: #252525;
+}
+.border-primary-green {
+  border-color: #7ab377;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* checkbox */
+.radio-check {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+.radio-check.active {
+  background-color: white;
+  border: 4px solid #696fff;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+/* random */
+.side-nav {
+  height: calc(100vh - 84px) !important;
+  overflow-y: auto;
+  padding-right: 15px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(128, 128, 128, 0.8) transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+.side-nav::-webkit-scrollbar {
+  width: 5px;
+}
+
+.side-nav::-webkit-scrollbar-track {
+  background: rgba(128, 128, 128, 0.05);
+}
+
+.side-nav::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.8);
+  border-radius: 20px;
 }

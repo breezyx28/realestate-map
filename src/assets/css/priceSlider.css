@@ -1,0 +1,26 @@
+/* slider container */
+.css-187mznn-MuiSlider-root {
+  height: 5px !important;
+}
+
+.css-1aznpnh-MuiSlider-root {
+  color: #696fff !important;
+  border-radius: 7px !important;
+  height: 6px !important;
+}
+.css-14pt78w-MuiSlider-rail {
+  background-color: rgba(156, 163, 175, 0.7) !important;
+}
+
+.css-eg0mwd-MuiSlider-thumb {
+  width: 20px !important;
+  height: 20px !important;
+  background-color: white !important;
+  border: 6px solid #696fff !important;
+}
+
+/* track between marks */
+.css-1gv0vcd-MuiSlider-track {
+  border: 1px solid #696fff !important;
+  background-color: #696fff !important;
+}
