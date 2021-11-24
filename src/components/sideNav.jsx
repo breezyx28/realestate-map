@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectBtn from './inputs/selectBtn'
+import PropertyTypeWraper from './inputs/selectBtn'
 import Section from './section'
 import Slider from '@mui/material/Slider';
 import MenuItem from '@mui/material/MenuItem';
@@ -8,6 +8,7 @@ import '../assets/css/priceSlider.css'
 import '../assets/css/selectMenu.css'
 import Tags from './tags';
 import Cta from './callToAction/cta';
+import ServiceTypeWraper from './sideNav/serviceType';
 
 const SideNav = () => {
     const [value, setValue] = React.useState([20, 67]);
@@ -35,20 +36,11 @@ const SideNav = () => {
                         </div>
                     </div>
                     <div className="apartment-type">
-                        <div className="flex items-center text-center justify-between rounded-xl bg-gray-100 text-gray-400" style={{height:"2.7rem"}}>
-                            <div className="flex items-center justify-center rounded-xl w-full text-xs h-full cursor-pointer">Purchase</div>
-                            <div className="flex items-center justify-center rounded-xl w-full text-xs bg-primary-blue text-white h-full cursor-pointer">Rent</div>
-                            <div className="flex items-center justify-center rounded-xl w-full text-xs h-full cursor-pointer">Daily</div>
-                        </div>
+                        <ServiceTypeWraper />
                     </div>
                     <div className="property-type">
                         <Section lable={'Property type'}>
-                            <div className="flex flex-wrap gap-3">
-                                <SelectBtn lable={'House'} active={false}/>
-                                <SelectBtn lable={'Commercial'} active={false}/>
-                                <SelectBtn lable={'Apartment'} active={true}/>
-                                <SelectBtn lable={'Land Plot'} active={false}/>
-                            </div>
+                            <PropertyTypeWraper />
                         </Section>
                     </div>
                     <div className="rooms">
