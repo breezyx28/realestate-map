@@ -77,7 +77,6 @@ const MapWraper = () => {
                             <div className="serviceType">service-type: {checkRealEstate.serviceType}</div>
                             <div className="propertyType">property-type: {checkRealEstate.propertyType}</div>
                             <div className="fullAddress">Address: {"address: " + checkRealEstate.address +", "+ checkRealEstate.city+", "+ checkRealEstate.state+", "+ checkRealEstate.country}</div>
-                            <div className="currency">Currency: {checkRealEstate.currency}</div>
                             <div className="price">Price: {checkRealEstate.price}</div>
                             <div className="area flex">Area: {checkRealEstate.area} m<small className="flex flex-col text-xs items-start">2</small></div>
                             <div className="roomsTable">
