@@ -11,13 +11,14 @@ import Cta from './callToAction/cta';
 import ServiceTypeWraper from './sideNav/serviceType';
 
 const SideNav = () => {
-    const [value, setValue] = React.useState([20, 67]);
+    const [value, setValue] = React.useState([250, 750]);
     const [age, setAge] = React.useState('');
 
     const handleAgeChange = (event) => {
         setAge(event.target.value);
     };
     const handleChange = (event, newValue) => {
+        console.log(newValue);
         setValue(newValue);
       };
 
@@ -63,16 +64,16 @@ const SideNav = () => {
                         <Section lable={'Price, $'}>
                             <div className="flex flex-col">
                                 <div className="pricing-inputs flex items-center gap-x-2">
-                                    <div className="flex justify-start items-center text-sm pl-5 w-full bg-gray-100 rounded-lg" style={{height:"2.7rem"}}>$50</div>
+                                    <div className="flex justify-start items-center text-sm pl-5 w-full bg-gray-100 rounded-lg" style={{height:"2.7rem"}}>${value[0]}</div>
                                     <div className="text-xl font-semibold text-gray-900">-</div>
-                                    <div className="flex justify-start items-center text-sm pl-5 w-full bg-gray-100 rounded-lg" style={{height:"2.7rem"}}>$950</div>
+                                    <div className="flex justify-start items-center text-sm pl-5 w-full bg-gray-100 rounded-lg" style={{height:"2.7rem"}}>${value[1]}</div>
                                 </div>
                             </div>
                         <Slider
                             value={value}
-                            min={0}
-                            step={1}
-                            max={100}
+                            min={50}
+                            step={50}
+                            max={1000}
                             onChange={handleChange}
                             getAriaValueText={valueLabelFormat}
                             valueLabelFormat={valueLabelFormat}

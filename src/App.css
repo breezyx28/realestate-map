@@ -2,6 +2,9 @@ html,
 body {
   font-family: 'Gilroy Light';
 }
+* {
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 
 .font-bold {
   font-family: 'Gilroy ExtraBold';
