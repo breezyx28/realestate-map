@@ -1,8 +1,19 @@
 .leaflet-container {
   width: 100%;
-  height: 81%;
+  height: 95%;
   border-radius: 45px;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 10px 100px;
+}
+
+@media (max-width: 920px) {
+  .leaflet-container {
+    /* padding-left: 10px !important;
+    padding-right: 10px !important; */
+    width: 100%;
+    height: 100vh;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 10px 100px;
+  }
 }
 
 .leaflet-control-attribution.leaflet-control {

@@ -28,7 +28,7 @@ const SideNav = () => {
 
     return (
         <div>
-            <div className="w-full ">
+            <div className="w-full">
                 <div className="flex flex-col gap-y-6">
                     <div className="title">
                         <div className="flex flex-col">

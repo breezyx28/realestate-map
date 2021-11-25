@@ -20,15 +20,15 @@ function App() {
 
             {/* main content */}
           <div className="main w-full">
-            <div className="flex gap-x-6 w-full">
+            <div className="flex md:flex-row flex-col md:gap-x-6 gap-0 w-full">
 
               {/* side nav */}
-              <div className="side-nav pl-10 pb-10 w-1/3">
+              <div className="side-nav pl-10 md:pb-10 pb-16 md:w-1/3 w-full">
                 <SideNav />
               </div>
 
               {/* map */}
-              <div className="h-screen w-full">
+              <div className="w-full md:h-auto h-full">
                 <MapWraper />
               </div>
             </div>

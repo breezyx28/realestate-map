@@ -40,7 +40,7 @@ const MapWraper = () => {
     }, [])
 
     return (
-        <div className="w-full h-full pr-10">
+        <div className="w-full h-full pr-10 md:pl-0 pl-10">
             <MapContainer className="markercluster-map" center={[15.650393523984054, 32.53563762363086]} zoom={12} maxZoom={20} zoomControl={false}>
                 <Description
                     title={'<img src="./img/navigation_icon.png" width="16" height="16" />'}

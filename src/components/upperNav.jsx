@@ -10,15 +10,15 @@ const UpperNav = () => {
                         <img src="./img/Logo.png" width="26" height="26"/>
                         <div className="text-lg text-primary-black font-semibold">Point</div>
                     </div>
-                    <ul className="flex items-center gap-x-14">
+                    <ul className="md:flex hidden items-center gap-x-14">
                         <li className="cursor-pointer">Rent</li>
                         <li className="cursor-pointer">Sale</li>
                         <li className="cursor-pointer">New Buildings</li>
                         <li className="cursor-pointer">Mortgage</li>
                     </ul>
                 </div>
-                <div className="flex justify-between items-center gap-x-16">
-                    <ul className="flex items-center text-gray-500 gap-x-14">
+                <div className="flex justify-between items-center md:gap-x-16 gap-0">
+                    <ul className="md:flex hidden items-center text-gray-500 gap-x-14">
                         <li className="cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -41,7 +41,14 @@ const UpperNav = () => {
                             </div>
                         </li>
                     </ul>
-                    <Avatar alt="Remy Sharp" src="./img/kat.jpg" />
+                    <div className="md:flex hidden">
+                        <Avatar alt="Remy Sharp" src="./img/kat.jpg" />
+                    </div>
+                    <div className="md:hidden flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 cursor-pointer" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
