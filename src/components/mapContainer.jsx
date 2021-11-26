@@ -73,12 +73,12 @@ const MapWraper = () => {
                             setCheckRealEstate(null);
                         }}
                     >
-                        <div className="p-3 text-xl">
-                            <div className="serviceType">service-type: {checkRealEstate.serviceType}</div>
-                            <div className="propertyType">property-type: {checkRealEstate.propertyType}</div>
-                            <div className="fullAddress">Address: {"address: " + checkRealEstate.address +", "+ checkRealEstate.city+", "+ checkRealEstate.state+", "+ checkRealEstate.country}</div>
-                            <div className="price">Price: {checkRealEstate.price}</div>
-                            <div className="area flex">Area: {checkRealEstate.area} m<small className="flex flex-col text-xs items-start">2</small></div>
+                        <div className="p-3">
+                            <div className="serviceType"><span className="font-bold">Service Type: </span> {checkRealEstate.serviceType}</div>
+                            <div className="propertyType"><span className="font-bold">Property Type: </span> {checkRealEstate.propertyType}</div>
+                            <div className="fullAddress"><span className="font-bold">Address: </span> {checkRealEstate.address +", "+ checkRealEstate.city+", "+ checkRealEstate.state+", "+ checkRealEstate.country}</div>
+                            <div className="price"><span className="font-bold">Price: </span> {checkRealEstate.price}</div>
+                            <div className="area flex"><span className="font-bold">Area: </span> {checkRealEstate.area} m<small className="flex flex-col text-xs items-start">2</small></div>
                             <div className="roomsTable">
                                 <PopupInfo {...checkRealEstate} />
                             </div>
