@@ -1,9 +1,49 @@
 import Avatar from '@mui/material/Avatar';
+import { useRef, useState } from 'react';
 
 const UpperNav = () => {
+    const addclass = useRef(null)
+    const [showMenu, setShowMenu] = useState(false)
+
+    function handleSideMenu(){
+        setTimeout(()=>{
+            addclass.current.classList.add('anime')
+            addclass.current.classList.remove('fadeOut')
+        },100)
+        document.querySelector('body').style.overflow = 'hidden'
+        setShowMenu(true);
+    }
+
+    function closeSideMenu(){
+        addclass.current.classList.remove('anime')
+        addclass.current.classList.add('fadeOut')
+        document.querySelector('body').style.overflow = 'auto'
+        setTimeout(()=>{
+            setShowMenu(false);
+        },250)
+    }
 
     return (
         <div className="w-full">
+            <div className={`side-menu ${showMenu ? '' : 'hidden'}`}>
+                <div ref={addclass} className={`side-menu-child shadow-lg`}>
+                    <div className="flex flex-col w-full h-full pt-4 gap-10">
+                        <div className="flex justify-end w-full pr-3">
+                            <div className="flex items-center justify-center text-center hover:bg-gray-100 rounded-full cursor-pointer w-10 h-10">
+                                <i onClick={closeSideMenu} className="fal fa-times text-2xl text-primary-black"></i>
+                            </div>
+                        </div>
+                        <div className="">
+                            <ul className="flex flex-col items-end text-xl text-gray-700 font-bold pr-5 gap-y-14">
+                                <li className="cursor-pointer hover:text-black">Rent</li>
+                                <li className="cursor-pointer hover:text-black">Sale</li>
+                                <li className="cursor-pointer hover:text-black">New Buildings</li>
+                                <li className="cursor-pointer hover:text-black">Mortgage</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="px-10 w-full flex justify-between items-center">
                 <div className="flex items-center gap-x-20">
                     <div className="logo flex items-center gap-x-2">
@@ -45,7 +85,7 @@ const UpperNav = () => {
                         <Avatar alt="Remy Sharp" src="./img/kat.jpg" />
                     </div>
                     <div className="md:hidden flex">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 cursor-pointer" viewBox="0 0 20 20" fill="currentColor">
+                        <svg onClick={handleSideMenu} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 cursor-pointer" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
                         </svg>
                     </div>
@@ -54,6 +94,16 @@ const UpperNav = () => {
         </div>
     )
 
+}
+
+export const SideMenu = () => {
+    return (
+        <div className="side-menu">
+            <div className="absolute bg-white shadow-lg right-0 w-1/3">
+                hello world
+            </div>
+        </div>
+    )
 }
 
 export default UpperNav

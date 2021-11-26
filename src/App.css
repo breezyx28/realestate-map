@@ -86,3 +86,42 @@ body {
   background-color: rgba(128, 128, 128, 0.8);
   border-radius: 20px;
 }
+
+.cta-filter:hover,
+.cta-show:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+}
+
+.side-menu {
+  overflow: hidden;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.474);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: 10000;
+}
+
+.side-menu-child {
+  position: absolute;
+  overflow: hidden;
+  float: right;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  right: -51%;
+  transition: all 1s ease-out;
+}
+.side-menu-child.fadeOut {
+  position: absolute;
+  right: -51%;
+  transition: all 0.24s ease-out;
+}
+
+.side-menu-child.anime {
+  position: absolute !important;
+  right: 0;
+  transition: all 0.24s ease-out;
+}

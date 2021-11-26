@@ -2,7 +2,7 @@ const Cta = () => {
     return (
         <div>
             <div className="w-full flex flex-col gap-y-3 text-sm">
-                <div className="flex justify-center items-center rounded-xl bg-gray-100 py-2 cursor-pointer">
+                <div className="cta-filter flex justify-center items-center rounded-xl bg-gray-100 py-2 cursor-pointer">
                     <div className="flex items-center gap-2">
                         <div className="transform -rotate-90">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -22,7 +22,7 @@ const Cta = () => {
                             </div>
                     </div>
                 </div>
-                <div className="flex justify-center items-center text-white rounded-xl bg-primary-black py-2 cursor-pointer">
+                <div className="cta-show flex justify-center items-center text-white rounded-xl bg-primary-black py-2 cursor-pointer">
                     Show
                 </div>
             </div>
