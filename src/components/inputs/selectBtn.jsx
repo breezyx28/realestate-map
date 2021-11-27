@@ -3,28 +3,30 @@ import {useState, useEffect} from "react"
 let data = [
     {
         id:1,
-        lable:'House',
+        propertyType:'House',
         active:false,
     },
     {
         id:2,
-        lable:'Commercial',
+        propertyType:'Commercial',
         active:false,
     },
     {
         id:3,
-        lable:'Apartment',
+        propertyType:'Apartment',
         active:false,
     },
     {
         id:4,
-        lable:'Land Plot',
+        propertyType:'Land Plot',
         active:false,
     }
 ]
 
+
 const PropertyTypeWraper = (props) => {
     const [state, setState] = useState(data)
+    const [choices, setChoices] = useState([])
 
     return (
         <div className="flex flex-wrap gap-3">
@@ -36,6 +38,15 @@ const PropertyTypeWraper = (props) => {
                             let newState = data.map((result)=>{
                                 if(info.id === result.id){
                                     info.active = !result.active
+                                    if(!choices.includes(info.propertyType)){
+                                        setChoices([...choices,info.propertyType])
+                                        props.selectedFilter({propertyType: [...choices,info.propertyType]})
+                                    }else{
+                                        let filtered = choices.filter((item)=>{
+                                            return item != info.propertyType
+                                        })
+                                        setChoices(filtered);
+                                    }
                                     return result
                                 }else{
                                     return result
@@ -46,7 +57,7 @@ const PropertyTypeWraper = (props) => {
                     className={`select-btn cursor-pointer ${info.active ? 'border-primary-blue' : 'border border-gray-300'} rounded-xl text-sm`}>
                         <div className="flex items-center gap-x-3 p-3 rounded">
                             <div className={`radio-check border border-gray-400 rounded-full ${info.active ? 'active' : ''}`}></div>
-                            <p className="text-sm">{info.lable}</p>
+                            <p className="text-sm">{info.propertyType}</p>
                         </div>
                     </div>
                 )

@@ -1,4 +1,12 @@
-const Cta = () => {
+import { connect } from 'react-redux';
+import { filterAction } from '../../store/actions/filterAction'
+
+const Cta = (props) => {
+
+    const handleFilter = () => {
+        return null
+    }
+
     return (
         <div>
             <div className="w-full flex flex-col gap-y-3 text-sm">
@@ -22,7 +30,7 @@ const Cta = () => {
                             </div>
                     </div>
                 </div>
-                <div className="cta-show flex justify-center items-center text-white rounded-xl bg-primary-black py-2 cursor-pointer">
+                <div onClick={handleFilter} className="cta-show flex justify-center items-center text-white rounded-xl bg-primary-black py-2 cursor-pointer">
                     Show
                 </div>
             </div>
@@ -30,4 +38,10 @@ const Cta = () => {
     );
 }
 
-export default Cta;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        filterAction: (filter) => dispatch(filterAction(filter))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Cta);

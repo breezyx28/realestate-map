@@ -5,15 +5,18 @@ import App from './App';
 import './App.css';
 import './assets/fa/css/all.css';
 import reportWebVitals from './reportWebVitals';
-// import { createStore, applyMiddleware } from 'redux'
-// import { Provider } from 'react-redux'
-// import thunk from 'redux-thunk'
-// import rootReducer from './store/reducers/rootReducer';
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import rootReducer from './store/reducers/rootReducer';
 
+const store = createStore(rootReducer,applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
       <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
