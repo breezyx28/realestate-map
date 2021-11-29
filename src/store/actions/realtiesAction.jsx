@@ -5,3 +5,11 @@ export const getRealties = (realties) => {
     }
 
 }
+
+export const filterRealties = (filter) => {
+
+    return (dispatch, getState) => {
+        dispatch({type:'FILTER_REALTIES', filterRealties: filter})
+    }
+
+}

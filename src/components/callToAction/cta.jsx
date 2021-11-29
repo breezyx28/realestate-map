@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { filterAction } from '../../store/actions/filterAction'
+import { filterRealties } from '../../store/actions/realtiesAction'
 
 const Cta = (props) => {
 
     const handleFilter = () => {
-        return null
+        props.filterRealties(props.filterResult)
     }
 
     return (
@@ -40,7 +40,7 @@ const Cta = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        filterAction: (filter) => dispatch(filterAction(filter))
+        filterRealties: (filter) => dispatch(filterRealties(filter))
     }
 }
 

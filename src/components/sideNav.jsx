@@ -45,11 +45,6 @@ const SideNav = () => {
         }
     }
 
-    // triger filter
-    function filterHandler(){
-
-    }
-
     useEffect(() => {
         console.log(filter);
     }, [filter])
@@ -106,7 +101,7 @@ const SideNav = () => {
                             </div>
                             <Slider
                                 value={value}
-                                min={50}
+                                min={0}
                                 step={50}
                                 max={1000}
                                 onChange={handleChange}
@@ -128,7 +123,7 @@ const SideNav = () => {
                     </div>
                     <div className="cta">
                         <Section lable={''}>
-                            <Cta clickFilter={filterHandler}/>
+                            <Cta filterResult={filter}/>
                         </Section>
                     </div>
                 </div>

@@ -18,7 +18,7 @@ let data = [
     },
     {
         id:4,
-        propertyType:'Land Plot',
+        propertyType:'Land plot',
         active:false,
     }
 ]

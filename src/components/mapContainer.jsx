@@ -1,4 +1,5 @@
 import React, { useEffect,useState } from 'react'
+import { connect } from 'react-redux';
 import '../assets/css/leafletContainer.css';
 import { MapContainer, Marker, Popup, TileLayer, ZoomControl } from 'react-leaflet'
 import { Icon } from 'leaflet'
@@ -6,15 +7,15 @@ import Description from './leaflet/customButton'
 import db from '../modules/db.json'
 import { PopupInfo } from './leaflet/popupInfo';
 
-
 const REIcon = new Icon({
     iconUrl: "/img/realestateIcon.svg",
     iconSize:[20,20]
 })
 
-const MapWraper = () => {
+const MapWraper = (props) => {
     const [location, setLocation] = useState([20.27, -157])
     const [checkRealEstate, setCheckRealEstate] = useState(null)
+    const [filteredLocation, setfilteredLocation] = useState(props.filter)
 
     useEffect(() => {
         console.log(checkRealEstate);
@@ -23,6 +24,10 @@ const MapWraper = () => {
         }
         return null
     }, [checkRealEstate])
+
+    useEffect(() => {
+        console.log(props.realEstate);
+    }, [props.realEstate])
 
     let getMyLocation = () => {
         window.navigator.geolocation.getCurrentPosition(function(position) {
@@ -91,4 +96,13 @@ const MapWraper = () => {
     )
 }
 
-export default MapWraper
+const mapStateToProps = (state) => {
+
+    return {
+        realEstate: state.filterRealties
+    }
+
+}
+
+
+export default connect(mapStateToProps)(MapWraper);
