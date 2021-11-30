@@ -49,12 +49,13 @@ const realestateReducer = (state = inintState, action) => {
         });
       };
 
+      console.log(filter);
+
       let newState = state.filter((item) => {
         return isExist(item, cleanedValues)
       });
 
       console.log(newState);
-
       return newState
     default:
       return state;

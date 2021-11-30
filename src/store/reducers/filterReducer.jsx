@@ -12,10 +12,6 @@ const filterReducer = (state = inintState, action) => {
     switch (action.type) {
         case 'FILTER_DATA':
             let newState = action.filter
-            console.log({
-                newState,
-                ...state
-            });
             return {
                 ...state,
             }

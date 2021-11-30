@@ -10,7 +10,7 @@ const Cta = (props) => {
     return (
         <div>
             <div className="w-full flex flex-col gap-y-3 text-sm">
-                <div className="cta-filter flex justify-center items-center rounded-xl bg-gray-100 py-2 cursor-pointer">
+                <div onClick={handleFilter} className="cta-filter flex justify-center items-center rounded-xl bg-gray-100 py-2 cursor-pointer">
                     <div className="flex items-center gap-2">
                         <div className="transform -rotate-90">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -18,7 +18,7 @@ const Cta = (props) => {
                             </svg>
                         </div>
                         <p>Filters</p>
-                        <div className="flex justify-center items-center text-xs rounded-full" style={
+                        {props.count === 0 ? '' : (<div className="flex justify-center items-center text-xs rounded-full" style={
                             {
                                 width:"1.3rem",
                                 height:"1.3rem",
@@ -26,12 +26,13 @@ const Cta = (props) => {
                                 backgroundColor:"#696fff",
                             }
                             }>
-                                <p style={{position:"relative"}}>3</p>
-                            </div>
+                                <p style={{position:"relative"}}>{props.count}</p>
+                        </div>)}
+                        
                     </div>
                 </div>
-                <div onClick={handleFilter} className="cta-show flex justify-center items-center text-white rounded-xl bg-primary-black py-2 cursor-pointer">
-                    Show
+                <div onClick={props.resetFilter} className="cta-show flex justify-center items-center text-white rounded-xl bg-primary-black py-2 cursor-pointer">
+                    Rest
                 </div>
             </div>
         </div>

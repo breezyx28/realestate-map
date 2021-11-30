@@ -15,10 +15,9 @@ const REIcon = new Icon({
 const MapWraper = (props) => {
     const [location, setLocation] = useState([20.27, -157])
     const [checkRealEstate, setCheckRealEstate] = useState(null)
-    const [filteredLocation, setfilteredLocation] = useState(props.filter)
+    const [filteredLocation, setfilteredLocation] = useState(db)
 
     useEffect(() => {
-        console.log(checkRealEstate);
         if(checkRealEstate){
             return checkRealEstate
         }
@@ -26,7 +25,7 @@ const MapWraper = (props) => {
     }, [checkRealEstate])
 
     useEffect(() => {
-        console.log(props.realEstate);
+        setfilteredLocation(props.realEstate)
     }, [props.realEstate])
 
     let getMyLocation = () => {
@@ -58,7 +57,7 @@ const MapWraper = (props) => {
                 />
                 <ZoomControl position="bottomright" zoomInText="+" zoomOutText="-"/>
 
-                {db.map((realEstate)=>(
+                {filteredLocation?.map((realEstate)=>(
                     <Marker 
                         key={realEstate.id}
                         position={realEstate.location} 
@@ -68,7 +67,7 @@ const MapWraper = (props) => {
                         } }}
                         icon={REIcon}
                     />
-                    )
+                )
                 )}
 
                 {checkRealEstate && (
@@ -97,12 +96,9 @@ const MapWraper = (props) => {
 }
 
 const mapStateToProps = (state) => {
-
     return {
-        realEstate: state.filterRealties
+        realEstate: state.realEstate
     }
-
 }
-
 
 export default connect(mapStateToProps)(MapWraper);

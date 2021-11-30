@@ -22,6 +22,8 @@ const SideNav = () => {
     const [value, setValue] = React.useState([250, 750]);
     const [rooms, setRooms] = React.useState({rooms:[0,0],floors:0});
     const [filter, setFilter] = React.useState(filterInitState)
+    const [filterCount, setFilterCount] = React.useState(0)
+    const [reset, setReset] = React.useState(false)
 
     const handleRoomsChange = (event) => {
         setRooms(event.target.value);
@@ -45,8 +47,26 @@ const SideNav = () => {
         }
     }
 
+    function resetFilter(){
+        setReset(true);
+        setFilter(filterInitState);
+        setFilterCount(0)
+    }
+
     useEffect(() => {
-        console.log(filter);
+        // change reset to init value
+        setReset(false);
+
+        // clean filter null values
+        let cleanNullValues = [];
+        for(let [key, value] of Object.entries(filter)){
+            if(value !== null){
+                cleanNullValues.push(key)
+            }
+        }
+
+        // set number of filters
+        setFilterCount(cleanNullValues.length)
     }, [filter])
 
     return (
@@ -60,11 +80,11 @@ const SideNav = () => {
                         </div>
                     </div>
                     <div className="apartment-type">
-                        <ServiceTypeWraper selectedFilter={handleSelectedFilter} />
+                        <ServiceTypeWraper reset={reset} selectedFilter={handleSelectedFilter} />
                     </div>
                     <div className="property-type">
                         <Section lable={'Property type'}>
-                            <PropertyTypeWraper selectedFilter={handleSelectedFilter}/>
+                            <PropertyTypeWraper reset={reset} selectedFilter={handleSelectedFilter}/>
                         </Section>
                     </div>
                     <div className="rooms">
@@ -123,7 +143,7 @@ const SideNav = () => {
                     </div>
                     <div className="cta">
                         <Section lable={''}>
-                            <Cta filterResult={filter}/>
+                            <Cta resetFilter={resetFilter} count={filterCount} filterResult={filter}/>
                         </Section>
                     </div>
                 </div>
