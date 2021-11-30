@@ -54,7 +54,7 @@ const PropertyTypeWraper = (props) => {
                             })
                             setState(newState);
                     }} 
-                    className={`select-btn cursor-pointer ${info.active ? 'border-primary-blue' : 'border border-gray-300'} rounded-xl text-sm`}>
+                    className={`select-btn cursor-pointer ${info.active && (props.reset === false) ? 'border-primary-blue' : 'border border-gray-300'} rounded-xl text-sm`}>
                         <div className="flex items-center gap-x-3 p-3 rounded">
                             <div className={`radio-check border border-gray-400 rounded-full ${info.active && (props.reset === false) ? 'active' : ''}`}></div>
                             <p className="text-sm">{info.propertyType}</p>

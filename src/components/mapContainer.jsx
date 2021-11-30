@@ -15,7 +15,7 @@ const REIcon = new Icon({
 const MapWraper = (props) => {
     const [location, setLocation] = useState([20.27, -157])
     const [checkRealEstate, setCheckRealEstate] = useState(null)
-    const [filteredLocation, setfilteredLocation] = useState(db)
+    const [filteredLocation, setfilteredLocation] = useState(props.realEstate)
 
     useEffect(() => {
         if(checkRealEstate){

@@ -49,7 +49,9 @@ const realestateReducer = (state = inintState, action) => {
         });
       };
 
-      console.log(filter);
+      if(Object.keys(filter).length === 0 && filter.constructor === Object){
+        return inintState;
+      }
 
       let newState = state.filter((item) => {
         return isExist(item, cleanedValues)

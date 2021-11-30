@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { filterRealties } from '../store/actions/realtiesAction'
 import PropertyTypeWraper from './inputs/selectBtn'
 import Section from './section'
 import Slider from '@mui/material/Slider';
@@ -11,7 +12,7 @@ import Tags from './tags';
 import Cta from './callToAction/cta';
 import ServiceTypeWraper from './sideNav/serviceType';
 
-const SideNav = () => {
+const SideNav = (props) => {
     const filterInitState = {
         serviceType: null,
         propertyType: null,
@@ -51,18 +52,24 @@ const SideNav = () => {
         setReset(true);
         setFilter(filterInitState);
         setFilterCount(0)
+        props.filterRealties(filterInitState)
     }
 
     useEffect(() => {
-        // change reset to init value
-        setReset(false);
-
+        console.log(filter);
+        
         // clean filter null values
         let cleanNullValues = [];
         for(let [key, value] of Object.entries(filter)){
             if(value !== null){
                 cleanNullValues.push(key)
             }
+        }
+
+        console.log(cleanNullValues.length);
+        // change reset to init value
+        if(cleanNullValues.length < 1){
+            setReset(false);
         }
 
         // set number of filters
@@ -159,4 +166,10 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(SideNav)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        filterRealties: (filter) => dispatch(filterRealties(filter))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideNav)
