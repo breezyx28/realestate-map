@@ -1,13 +1,17 @@
+
+
+import {isMobile} from 'react-device-detect';
+import CausionModal from './components/modal/modal';
 import SideNav from './components/sideNav'
 import MapWraper from './components/mapContainer';
 import UpperNav from './components/upperNav';
 
 function App() {
+
   return (
     <div>
       <div className="w-full">
-
-
+        {isMobile ? <CausionModal isOpen={true} /> : ''}
         {/* grid system */}
         <div className="flex h-full flex-col w-full gap-y-6">
 
