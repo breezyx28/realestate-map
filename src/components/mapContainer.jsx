@@ -52,7 +52,7 @@ const MapWraper = (props) => {
                     description="This is a custom description!"
                 />
                 <TileLayer 
-                    url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
+                    url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=8ef412b9-10a1-4923-8efd-7a0630941651"
                     attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
                 />
                 <ZoomControl position="bottomright" zoomInText="+" zoomOutText="-"/>
