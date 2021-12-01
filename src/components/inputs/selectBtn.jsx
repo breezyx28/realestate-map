@@ -28,6 +28,14 @@ const PropertyTypeWraper = (props) => {
     const [state, setState] = useState(data)
     const [choices, setChoices] = useState([])
 
+    useEffect(() => {
+        data = state.map((value,key)=>{
+            value.active = false
+            return value
+        })
+        setState(data);
+    }, [props.reset])
+
     return (
         <div className="flex flex-wrap gap-3">
             {state && state.map((info)=>{
@@ -54,9 +62,9 @@ const PropertyTypeWraper = (props) => {
                             })
                             setState(newState);
                     }} 
-                    className={`select-btn cursor-pointer ${info.active && (props.reset === false) ? 'border-primary-blue' : 'border border-gray-300'} rounded-xl text-sm`}>
+                    className={`select-btn cursor-pointer ${info.active ? 'border-primary-blue' : 'border border-gray-300'} rounded-xl text-sm`}>
                         <div className="flex items-center gap-x-3 p-3 rounded">
-                            <div className={`radio-check border border-gray-400 rounded-full ${info.active && (props.reset === false) ? 'active' : ''}`}></div>
+                            <div className={`radio-check border border-gray-400 rounded-full ${info.active ? 'active' : ''}`}></div>
                             <p className="text-sm">{info.propertyType}</p>
                         </div>
                     </div>

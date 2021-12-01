@@ -55,9 +55,11 @@ const SideNav = (props) => {
         props.filterRealties(filterInitState)
     }
 
+    function resetHandler(){
+        setReset(false);
+    }
+
     useEffect(() => {
-        console.log(filter);
-        
         // clean filter null values
         let cleanNullValues = [];
         for(let [key, value] of Object.entries(filter)){
@@ -66,15 +68,16 @@ const SideNav = (props) => {
             }
         }
 
-        console.log(cleanNullValues.length);
-        // change reset to init value
-        if(cleanNullValues.length < 1){
-            setReset(false);
-        }
-
         // set number of filters
         setFilterCount(cleanNullValues.length)
     }, [filter])
+
+    useEffect(() => {
+        console.log(props.realEstate)
+        return () => {
+            return 0
+        }
+    }, [props.realEstate])
 
     return (
         <div>
@@ -83,7 +86,7 @@ const SideNav = (props) => {
                     <div className="title">
                         <div className="flex flex-col">
                             <div className="text-3xl font-bold text-primary-black">Search real estate</div>
-                            <div className="text-gray-300">23 property found</div>
+                            <div className="text-gray-300">{props?.realEstate?.length} property found</div>
                         </div>
                     </div>
                     <div className="apartment-type">
@@ -150,7 +153,7 @@ const SideNav = (props) => {
                     </div>
                     <div className="cta">
                         <Section lable={''}>
-                            <Cta resetFilter={resetFilter} count={filterCount} filterResult={filter}/>
+                            <Cta resetHandler={resetHandler} resetFilter={resetFilter} count={filterCount} filterResult={filter}/>
                         </Section>
                     </div>
                 </div>
@@ -162,7 +165,8 @@ const SideNav = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        filter: state.filter
+        filter: state.filter,
+        realEstate: state.realEstate
     }
 };
 

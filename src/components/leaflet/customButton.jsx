@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { useMap } from "react-leaflet";
-import L, { LeafletMouseEvent, Map } from "leaflet";
+import L from "leaflet";
 
 class Description extends React.Component {
     createButtonControl() {
@@ -14,13 +14,22 @@ class Description extends React.Component {
             helpDiv.style.marginRight = "2rem";
             helpDiv.style.marginBottom = "2rem";
             helpDiv.style.boxShadow = "rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px"
-    
+            
+
+            // custom font awesome icon
+            const fontAwesomeIcon = L.divIcon({
+              html: '<i class="fas fa-map-pin fa-4x text-primary-blue"></i>',
+              iconSize: [100, 100],
+              className: 'random'
+            });
+
             // add the event listener that will create a marker on the map
             helpDiv.addEventListener("click", () => {
-              const marker = L.marker()
-                .setLatLng(this.props.markerPosition)
+              const marker = L.marker(this.props.markerPosition,{
+                icon:fontAwesomeIcon
+                })
                 .bindPopup(this.props.description)
-                .bindTooltip('This location is based on <br/> your <strong class="text-lg">browser</strong> location', {offset: [24, 32], permanent: true, direction: 'right'})
+                // .bindTooltip('This location is based on <br/> your <strong class="text-lg">browser</strong> location', {offset: [24, 32], permanent: true, direction: 'right'})
                 .addTo(map);
 
                 map.flyTo(this.props.markerPosition, 15)

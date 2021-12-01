@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react'
 import { connect } from 'react-redux';
 import '../assets/css/leafletContainer.css';
 import { MapContainer, Marker, Popup, TileLayer, ZoomControl } from 'react-leaflet'
-import { Icon } from 'leaflet'
+import { Icon  } from 'leaflet'
 import Description from './leaflet/customButton'
 import db from '../modules/db.json'
 import { PopupInfo } from './leaflet/popupInfo';
@@ -62,7 +62,6 @@ const MapWraper = (props) => {
                         key={realEstate.id}
                         position={realEstate.location} 
                         eventHandlers={{ click: () => {
-                            console.log('hello');
                             setCheckRealEstate(realEstate);
                         } }}
                         icon={REIcon}
